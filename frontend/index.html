@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCE Lost and Found - Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <!-- LEFT PANEL: Brand -->
+    <div class="left-panel">
+      <div class="brand-content">
+        <!-- Logo -->
+        <div class="logo-large">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="#D4960A"/>
+            <text x="50" y="55" text-anchor="middle" font-size="32" font-weight="bold" fill="#142240" font-family="Georgia, serif">TCE</text>
+          </svg>
+        </div>
+
+        <!-- Brand Text -->
+        <h1 class="brand-title">TCE Lost and Found</h1>
+        <p class="brand-tagline">Reconnecting students with what matters</p>
+
+        <!-- Campus Icon Grid -->
+        <div class="icon-grid">
+          <div class="icon-cell" title="Library">📚</div>
+          <div class="icon-cell" title="Canteen">🍽️</div>
+          <div class="icon-cell" title="Lab">🔬</div>
+          <div class="icon-cell" title="Sports">⚽</div>
+          <div class="icon-cell" title="Gate">🚪</div>
+          <div class="icon-cell" title="Hostel">🏢</div>
+          <div class="icon-cell" title="Classroom">🎓</div>
+          <div class="icon-cell" title="Parking">🅿️</div>
+          <div class="icon-cell" title="Campus">📍</div>
+        </div>
+
+        <!-- Footer Text -->
+        <p class="brand-footer">Thiagarajar College of Engineering, Madurai</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Login Form -->
+    <div class="right-panel">
+      <div class="form-container">
+        <!-- Logo Mark -->
+        <div class="logo-mark">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="#D4960A"/>
+            <text x="50" y="55" text-anchor="middle" font-size="24" font-weight="bold" fill="#142240" font-family="Georgia, serif">TCE</text>
+          </svg>
+        </div>
+
+        <!-- Form Header -->
+        <h2 class="form-title">Sign in to your account</h2>
+        <p class="form-subtitle">Use your TCE email to continue</p>
+
+        <!-- Role Tabs -->
+        <div class="role-tabs">
+          <button class="role-tab active" data-role="student">Student</button>
+          <button class="role-tab" data-role="staff">Staff</button>
+          <button class="role-tab" data-role="admin">Admin</button>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-wrapper">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="email" class="form-input" placeholder="yourname@tce.edu" required />
+            </div>
+            <span class="error-inline" id="emailError"></span>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="password" class="form-input" placeholder="Enter your password" required />
+              <button type="button" class="eye-toggle" id="eyeToggle">👁️</button>
+            </div>
+            <span class="error-inline" id="passwordError"></span>
+          </div>
+
+          <!-- Forgot Password & Remember Me -->
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe" />
+              Remember me
+            </label>
+            <a href="#forgot" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-large">Sign in</button>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+          <span class="divider-text">or continue with</span>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="social-row">
+          <button type="button" class="social-btn" id="googleBtn">
+            <span>🔵</span> Google
+          </button>
+          <button type="button" class="social-btn" id="appleBtn">
+            <span>🍎</span> Apple
+          </button>
+        </div>
+
+        <!-- Sign Up Link -->
+        <p class="signup-link">
+          Don't have an account? <a href="#signup" onclick="openSignupModal(event)">Sign up</a>
+        </p>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a href="#">Terms of use</a>
+          <span>·</span>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div id="signupModal" class="modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeSignupModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeSignupModal()">✕</button>
+      <h2>Create your account</h2>
+      <form id="signupForm">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" id="signupName" class="form-input" required />
+        </div>
+
+        <div class="form-row-two">
+          <div class="form-group">
+            <label class="form-label">Roll Number *</label>
+            <input type="text" id="signupRoll" class="form-input" placeholder="21CS045" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Department *</label>
+            <input type="text" id="signupDept" class="form-input" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email *</label>
+          <input type="email" id="signupEmail" class="form-input" placeholder="name@tce.edu" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone *</label>
+          <input type="tel" id="signupPhone" class="form-input" placeholder="10 digit number" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password *</label>
+          <input type="password" id="signupPassword" class="form-input" placeholder="Min 8 characters, 1 number" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirm Password *</label>
+          <input type="password" id="signupConfirmPassword" class="form-input" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

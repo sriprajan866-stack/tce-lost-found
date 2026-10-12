@@ -1,0 +1,646 @@
+:root {
+  --navy: #142240;
+  --navy-light: #1e3460;
+  --amber: #D4960A;
+  --amber-light: #F5B830;
+  --white: #FFFFFF;
+  --bg: #EEF1F8;
+  --border: #D8DEF0;
+  --text: #142240;
+  --muted: #6B7A9E;
+  --success: #16A34A;
+  --warning: #CA8A04;
+  --danger: #DC2626;
+  --spacing-unit: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ============ LOGIN PAGE ============ */
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-panel {
+  width: 45%;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 40px;
+  color: var(--white);
+}
+
+.brand-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.logo-large {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 32px;
+}
+
+.logo-large svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.brand-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 200px;
+  animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+.icon-cell {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-cell:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.brand-footer {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  animation: fadeInUp 0.6s ease 0.6s both;
+}
+
+.right-panel {
+  width: 55%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 32px;
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* ============ ROLE TABS ============ */
+
+.role-tabs {
+  display: flex;
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 4px;
+  margin-bottom: 24px;
+  gap: 0;
+}
+
+.role-tab {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.role-tab:hover {
+  background: rgba(212, 150, 10, 0.1);
+}
+
+.role-tab.active {
+  background: var(--amber);
+  color: var(--white);
+  box-shadow: 0 2px 8px rgba(212, 150, 10, 0.2);
+}
+
+/* ============ FORM ELEMENTS ============ */
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: var(--white);
+  color: var(--text);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(212, 150, 10, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--muted);
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: opacity 0.2s;
+}
+
+.eye-toggle:hover {
+  opacity: 0.7;
+}
+
+.error-inline {
+  display: block;
+  font-size: 11px;
+  color: var(--danger);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.error-message {
+  background: #FEE2E2;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message::before {
+  content: '⚠️';
+  flex-shrink: 0;
+}
+
+/* ============ FORM ROW & CHECKBOX ============ */
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.form-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--amber);
+}
+
+.forgot-link {
+  color: var(--amber);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: var(--amber-light);
+}
+
+/* ============ BUTTONS ============ */
+
+.btn {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.btn-primary:hover {
+  background: var(--navy-light);
+  border-color: var(--navy-light);
+  box-shadow: 0 4px 12px rgba(20, 34, 64, 0.15);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-large {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.social-btn {
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.social-btn:hover {
+  border-color: var(--text);
+  background: var(--bg);
+}
+
+.social-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* ============ DIVIDER ============ */
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider-text {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ============ SIGNUP LINK & FOOTER ============ */
+
+.signup-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.signup-link a {
+  color: var(--amber);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* ============ MODAL ============ */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 450px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
+/* ============ ANIMATIONS ============ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ TOAST ============ */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 999;
+  animation: slideUp 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toast-success {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.toast-error {
+  background: var(--danger);
+  color: var(--white);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1024px) {
+  .left-panel {
+    width: 40%;
+    padding: 40px 32px;
+  }
+
+  .right-panel {
+    width: 60%;
+    padding: 40px 32px;
+  }
+
+  .brand-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    width: 100%;
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .right-panel {
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  .icon-grid {
+    margin-bottom: 32px;
+  }
+
+  .brand-title {
+    font-size: 22px;
+  }
+
+  .social-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row-two {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-panel,
+  .right-panel {
+    padding: 24px 16px;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .role-tabs {
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+}
